@@ -6,6 +6,8 @@
 #include "Shockwave/Events/MouseEvent.h"
 #include "Shockwave/Events/KeyEvent.h"
 
+#include <glad/glad.h>
+
 namespace Shockwave
 {
 	static bool s_GLFWInitialized = false;
@@ -42,13 +44,17 @@ namespace Shockwave
 		{
 			// TODO: glfwTerminate on system shutdown
 			int success = glfwInit();
-			SW_CORE_ASSERT(success, "Could not initialize GLFW")
+			SW_CORE_ASSERT(success, "Could not initialize GLFW");
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		SW_CORE_ASSERT(status, "Failed to initialize Glad!");
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -148,11 +154,7 @@ namespace Shockwave
 
 	void WindowsWindow::SetVSync(bool enabled)
 	{
-		if (enabled)
-			glfwSwapInterval(1);
-		else
-			glfwSwapInterval(0);
-
+		glfwSwapInterval(enabled ? 1 : 0);
 		m_Data.VSync = enabled;
 	}
 

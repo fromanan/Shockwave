@@ -32,4 +32,3 @@ namespace Shockwave
 	// To be defined by CLIENT
 	Application* CreateApplication();
 }
-
