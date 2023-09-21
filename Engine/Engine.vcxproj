@@ -164,6 +164,8 @@
     <ClInclude Include="src\Shockwave\Events\Event.h" />
     <ClInclude Include="src\Shockwave\Events\KeyEvent.h" />
     <ClInclude Include="src\Shockwave\Events\MouseEvent.h" />
+    <ClInclude Include="src\Shockwave\Layer.h" />
+    <ClInclude Include="src\Shockwave\LayerStack.h" />
     <ClInclude Include="src\Shockwave\Log.h" />
     <ClInclude Include="src\Shockwave\Window.h" />
     <ClInclude Include="src\swpch.h" />
@@ -171,6 +173,8 @@
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Shockwave\Application.cpp" />
+    <ClCompile Include="src\Shockwave\Layer.cpp" />
+    <ClCompile Include="src\Shockwave\LayerStack.cpp" />
     <ClCompile Include="src\Shockwave\Log.cpp" />
     <ClCompile Include="src\swpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

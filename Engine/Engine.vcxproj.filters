@@ -40,6 +40,12 @@
     <ClInclude Include="src\Shockwave\Events\MouseEvent.h">
       <Filter>Shockwave\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Shockwave\Layer.h">
+      <Filter>Shockwave</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shockwave\LayerStack.h">
+      <Filter>Shockwave</Filter>
+    </ClInclude>
     <ClInclude Include="src\Shockwave\Log.h">
       <Filter>Shockwave</Filter>
     </ClInclude>
@@ -53,6 +59,12 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Shockwave\Application.cpp">
+      <Filter>Shockwave</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shockwave\Layer.cpp">
+      <Filter>Shockwave</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shockwave\LayerStack.cpp">
       <Filter>Shockwave</Filter>
     </ClCompile>
     <ClCompile Include="src\Shockwave\Log.cpp">
