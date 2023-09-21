@@ -4,6 +4,9 @@
     <Filter Include="Shockwave">
       <UniqueIdentifier>{90E27500-FC4C-2A77-458B-DB1CB13408CC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shockwave\Events">
+      <UniqueIdentifier>{740C4119-6005-606B-8937-45F0758F3F77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Shockwave.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Shockwave\EntryPoint.h">
       <Filter>Shockwave</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shockwave\Events\ApplicationEvent.h">
+      <Filter>Shockwave\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shockwave\Events\Event.h">
+      <Filter>Shockwave\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shockwave\Events\KeyEvent.h">
+      <Filter>Shockwave\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shockwave\Events\MouseEvent.h">
+      <Filter>Shockwave\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Shockwave\Log.h">
       <Filter>Shockwave</Filter>

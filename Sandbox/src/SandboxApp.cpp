@@ -5,12 +5,10 @@ class Sandbox : public Shockwave::Application
 public:
 	Sandbox()
 	{
-
 	}
 
 	~Sandbox()
 	{
-
 	}
 };
 
