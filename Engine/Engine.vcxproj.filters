@@ -19,6 +19,7 @@
     <ClInclude Include="src\Shockwave\Log.h">
       <Filter>Shockwave</Filter>
     </ClInclude>
+    <ClInclude Include="src\swpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Shockwave\Application.cpp">
@@ -27,5 +28,6 @@
     <ClCompile Include="src\Shockwave\Log.cpp">
       <Filter>Shockwave</Filter>
     </ClCompile>
+    <ClCompile Include="src\swpch.cpp" />
   </ItemGroup>
 </Project>

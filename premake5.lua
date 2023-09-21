@@ -20,6 +20,9 @@ project "Engine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "swpch.h"
+	pchsource "Engine/src/swpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
