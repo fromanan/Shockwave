@@ -53,6 +53,8 @@
       <Filter>Shockwave</Filter>
     </ClInclude>
     <ClInclude Include="src\swpch.h" />
+    <ClInclude Include="src\Shockwave\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -71,5 +73,7 @@
       <Filter>Shockwave</Filter>
     </ClCompile>
     <ClCompile Include="src\swpch.cpp" />
+    <ClCompile Include="src\Shockwave\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>
