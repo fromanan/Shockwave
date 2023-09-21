@@ -67,14 +67,17 @@ project "Engine"
 
 	filter "configurations:Debug"
 		defines { "SW_DEBUG", "SW_ENABLE_ASSERTS" }
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "SW_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "SW_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -114,12 +117,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines { "SW_DEBUG", "SW_ENABLE_ASSERTS" }
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "SW_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "SW_DIST"
+		buildoptions "/MD"
 		optimize "On"
