@@ -45,7 +45,8 @@ project "Engine"
 	links
 	{
 		"GLFW",
-		"opengl32.lib"
+		"opengl32.lib",
+		"dwmapi.lib"
 	}
 
 	filter "system:windows"
@@ -65,7 +66,7 @@ project "Engine"
 		}
 
 	filter "configurations:Debug"
-		defines "SW_DEBUG"
+		defines { "SW_DEBUG", "SW_ENABLE_ASSERTS" }
 		symbols "On"
 
 	filter "configurations:Release"
@@ -112,7 +113,7 @@ project "Sandbox"
 		}
 
 	filter "configurations:Debug"
-		defines "SW_DEBUG"
+		defines { "SW_DEBUG", "SW_ENABLE_ASSERTS" }
 		symbols "On"
 
 	filter "configurations:Release"
