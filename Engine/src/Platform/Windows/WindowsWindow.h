@@ -9,8 +9,8 @@ namespace Shockwave
 	class WindowsWindow : public Window
 	{
 	public:
-		WindowsWindow(const WindowProps& props);
-		virtual ~WindowsWindow();
+		explicit WindowsWindow(const WindowProps& props);
+		~WindowsWindow() override;
 
 		void OnUpdate() override;
 
@@ -38,7 +38,7 @@ namespace Shockwave
 			EventCallbackFn EventCallback;
 		};
 
-		static WindowData& GetWindowData(GLFWwindow* window) { return *static_cast<WindowData*>(glfwGetWindowUserPointer(window)); }
+		inline static WindowData& GetWindowData(GLFWwindow* window) { return *static_cast<WindowData*>(glfwGetWindowUserPointer(window)); }
 
 		WindowData m_Data;
 	};
