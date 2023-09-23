@@ -12,6 +12,7 @@ namespace Shockwave
         inline static std::pair<float, float> GetMouse() { return s_Instance->GetMouseImpl(); }
         inline static float GetMouseX() { return s_Instance->GetMouseXImpl(); }
         inline static float GetMouseY() { return s_Instance->GetMouseYImpl(); }
+        static void LoadKeyMap();
     protected:
         virtual bool IsKeyPressedImpl(int keycode) = 0;
         virtual bool IsMouseButtonPressedImpl(int button) = 0;
