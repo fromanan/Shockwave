@@ -36,6 +36,8 @@ namespace Shockwave
 			EventCallbackFn EventCallback;
 		};
 
+		static WindowData& GetWindowData(GLFWwindow* window) { return *(WindowData*)glfwGetWindowUserPointer(window); }
+
 		WindowData m_Data;
 	};
 }

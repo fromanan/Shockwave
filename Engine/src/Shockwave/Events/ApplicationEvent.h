@@ -4,16 +4,16 @@
 
 namespace Shockwave
 {
-	class SHOCKWAVE_API WindowResizeEvent : public Event
+	class SHOCKWAVE_API WindowResizeEvent final : public Event
 	{
 	public:
-		WindowResizeEvent(unsigned int width, unsigned int height)
+		WindowResizeEvent(const unsigned int width, const unsigned int height)
 			: m_Width(width), m_Height(height) {}
 
 		inline unsigned int GetWidth() const { return m_Width; }
 		inline unsigned int GetHeight() const { return m_Height; }
 
-		std::string ToString() const override
+		inline std::string ToString() const override
 		{
 			std::stringstream ss;
 			ss << "WindowResizeEvent: " << m_Width << ", " << m_Height;
@@ -27,37 +27,37 @@ namespace Shockwave
 		unsigned int m_Width, m_Height;
 	};
 
-	class SHOCKWAVE_API WindowCloseEvent : public Event
+	class SHOCKWAVE_API WindowCloseEvent final : public Event
 	{
 	public:
-		WindowCloseEvent() {}
+		WindowCloseEvent() = default;
 
 		EVENT_CLASS_TYPE(WindowClose)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class SHOCKWAVE_API AppTickEvent : public Event
+	class SHOCKWAVE_API AppTickEvent final : public Event
 	{
 	public:
-		AppTickEvent() {}
+		AppTickEvent() = default;
 
 		EVENT_CLASS_TYPE(AppTick)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class SHOCKWAVE_API AppUpdateEvent : public Event
+	class SHOCKWAVE_API AppUpdateEvent final : public Event
 	{
 	public:
-		AppUpdateEvent() {}
+		AppUpdateEvent() = default;
 
 		EVENT_CLASS_TYPE(AppUpdate)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class SHOCKWAVE_API AppRenderEvent : public Event
+	class SHOCKWAVE_API AppRenderEvent final : public Event
 	{
 	public:
-		AppRenderEvent() {}
+		AppRenderEvent() = default;
 
 		EVENT_CLASS_TYPE(AppRender)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)

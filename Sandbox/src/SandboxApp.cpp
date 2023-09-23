@@ -27,9 +27,7 @@ public:
 		PushOverlay(new Shockwave::ImGuiLayer());
 	}
 
-	~Sandbox()
-	{
-	}
+	~Sandbox() override = default;
 };
 
 Shockwave::Application* Shockwave::CreateApplication()

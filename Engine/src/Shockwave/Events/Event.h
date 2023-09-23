@@ -11,7 +11,7 @@ namespace Shockwave
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 		AppTick, AppUpdate, AppRender,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased, KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 	 
@@ -35,6 +35,7 @@ namespace Shockwave
 	{
 		friend class EventDispatcher;
 	public:
+		virtual ~Event() = default;
 		bool Handled = false;
 
 		virtual EventType GetEventType() const = 0;
@@ -42,7 +43,7 @@ namespace Shockwave
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCategory(EventCategory category)
+		inline bool IsInCategory(const EventCategory category) const
 		{
 			return GetCategoryFlags() & category;
 		}
@@ -53,7 +54,7 @@ namespace Shockwave
 		template<typename T>
 		using EventFn = std::function<bool(T&)>;
 	public:
-		EventDispatcher(Event& event)
+		explicit EventDispatcher(Event& event)
 			: m_Event(event)
 		{
 		}

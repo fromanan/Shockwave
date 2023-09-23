@@ -24,12 +24,12 @@ namespace Shockwave
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
-		Init(props);
+		WindowsWindow::Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
-		Shutdown();
+		WindowsWindow::Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
@@ -61,7 +61,7 @@ namespace Shockwave
 		// Set GLFW callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowData& data = GetWindowData(window);
 			data.Width = width;
 			data.Height = height;
 
@@ -71,14 +71,14 @@ namespace Shockwave
 
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			const WindowData& data = GetWindowData(window);
 			WindowCloseEvent event;
 			data.EventCallback(event);
 		});
 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			const WindowData& data = GetWindowData(window);
 
 			switch (action)
 			{
@@ -103,9 +103,16 @@ namespace Shockwave
 			}
 		});
 
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+		{
+			WindowData& data = GetWindowData(window);
+			KeyTypedEvent event(keycode);
+			data.EventCallback(event);
+		});
+
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			const WindowData& data = GetWindowData(window);
 
 			switch (action)
 			{
@@ -126,7 +133,7 @@ namespace Shockwave
 
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			const WindowData& data = GetWindowData(window);
 
 			MouseScrolledEvent event((float)xOffset, (float)yOffset);
 			data.EventCallback(event);
@@ -134,7 +141,7 @@ namespace Shockwave
 
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPosition, double yPosition)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			const WindowData& data = GetWindowData(window);
 
 			MouseMovedEvent event((float)xPosition, (float)yPosition);
 			data.EventCallback(event);
@@ -152,7 +159,7 @@ namespace Shockwave
 		glfwSwapBuffers(m_Window);
 	}
 
-	void WindowsWindow::SetVSync(bool enabled)
+	void WindowsWindow::SetVSync(const bool enabled)
 	{
 		glfwSwapInterval(enabled ? 1 : 0);
 		m_Data.VSync = enabled;

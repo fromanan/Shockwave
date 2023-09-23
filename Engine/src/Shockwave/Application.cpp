@@ -16,9 +16,7 @@ namespace Shockwave
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 	}
 
-	Application::~Application()
-	{
-	}
+	Application::~Application() = default;
 
 	void Application::PushLayer(Layer* layer)
 	{

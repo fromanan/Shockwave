@@ -4,16 +4,16 @@
 
 namespace Shockwave
 {
-	class SHOCKWAVE_API MouseMovedEvent : public Event
+	class SHOCKWAVE_API MouseMovedEvent final : public Event
 	{
 	public:
-		MouseMovedEvent(float x, float y)
+		MouseMovedEvent(const float x, const float y)
 			: m_MouseX(x), m_MouseY(y) {}
 
 		inline float GetX() const { return m_MouseX; }
 		inline float GetY() const { return m_MouseY; }
 
-		std::string ToString() const override
+		inline std::string ToString() const override
 		{
 			std::stringstream ss;
 			ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
@@ -26,16 +26,16 @@ namespace Shockwave
 		float m_MouseX, m_MouseY;
 	};
 
-	class SHOCKWAVE_API MouseScrolledEvent : public Event
+	class SHOCKWAVE_API MouseScrolledEvent final : public Event
 	{
 	public:
-		MouseScrolledEvent(float xOffset, float yOffset)
+		MouseScrolledEvent(const float xOffset, const float yOffset)
 			: m_XOffset(xOffset), m_YOffset(yOffset) {}
 
 		inline float GetXOffset() const { return m_XOffset; }
 		inline float GetYOffset() const { return m_YOffset; }
 
-		std::string ToString() const override
+		inline std::string ToString() const override
 		{
 			std::stringstream ss;
 			ss << "MouseScrolledEvent: " << m_XOffset << ", " << m_YOffset;
@@ -55,19 +55,19 @@ namespace Shockwave
 
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput | EventCategoryMouseButton)
 	protected:
-		MouseButtonEvent(int button)
+		explicit MouseButtonEvent(const int button)
 			: m_Button(button) {}
 
 		int m_Button;
 	};
 
-	class SHOCKWAVE_API MouseButtonPressedEvent : public MouseButtonEvent
+	class SHOCKWAVE_API MouseButtonPressedEvent final : public MouseButtonEvent
 	{
 	public:
-		MouseButtonPressedEvent(int button)
+		explicit MouseButtonPressedEvent(const int button)
 			: MouseButtonEvent(button) {}
 
-		std::string ToString() const override
+		inline std::string ToString() const override
 		{
 			std::stringstream ss;
 			ss << "MouseButtonPressedEvent: " << m_Button;
@@ -77,13 +77,13 @@ namespace Shockwave
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class SHOCKWAVE_API MouseButtonReleasedEvent : public MouseButtonEvent
+	class SHOCKWAVE_API MouseButtonReleasedEvent final : public MouseButtonEvent
 	{
 	public:
-		MouseButtonReleasedEvent(int button)
+		explicit MouseButtonReleasedEvent(const int button)
 			: MouseButtonEvent(button) {}
 
-		std::string ToString() const override
+		inline std::string ToString() const override
 		{
 			std::stringstream ss;
 			ss << "MouseButtonReleasedEvent: " << m_Button;
