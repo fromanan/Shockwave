@@ -2,17 +2,16 @@
 
 #include "ImGuiLayer.h"
 
-#include "glad/glad.h"
+#include <glad/glad.h>
 #include "Platform/OpenGL/ImGuiOpenGLRenderer.h"
-#include "GLFW/glfw3.h"
+#include <GLFW/glfw3.h>
 
 #include "Shockwave/Application.h"
 
+// ReSharper disable CppClangTidyModernizeAvoidBind
 namespace Shockwave
 {
-	ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer")
-	{
-	}
+	ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer") {	}
 
 	ImGuiLayer::~ImGuiLayer() = default;
 
@@ -50,9 +49,7 @@ namespace Shockwave
 		ImGui_ImplOpenGL3_Init("#version 410");
 	}
 
-	void ImGuiLayer::OnDetach()
-	{
-	}
+	void ImGuiLayer::OnDetach() { }
 
 	void ImGuiLayer::OnUpdate()
 	{

@@ -3,13 +3,14 @@
 
 #include <glad/glad.h>
 
+// ReSharper disable CppClangTidyModernizeAvoidBind
 namespace Shockwave
 {
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
 	{
-		SW_CORE_ASSERT(!s_Instance, "Application is already running!");
+		SW_CORE_ASSERT(!s_Instance, "Application is already running!")
 		s_Instance = this;
 
 		m_Window = std::unique_ptr<Window>(Window::Create());

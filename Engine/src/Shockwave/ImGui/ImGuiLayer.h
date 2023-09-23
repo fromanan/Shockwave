@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Shockwave/Layer.h"
+#include "Shockwave/Layers/Layer.h"
 
 #include "Shockwave/Events/ApplicationEvent.h"
 #include "Shockwave/Events/MouseEvent.h"

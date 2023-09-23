@@ -12,10 +12,10 @@ namespace Shockwave
 		std::string Title;
 		unsigned int Width, Height;
 
-		WindowProps(const std::string& title = "Shockwave Engine",
-			unsigned int width = 1920,
-			unsigned int height = 1080)
-			: Title(title), Width(width), Height(height)
+		explicit WindowProps(std::string title = "Shockwave Engine",
+		                     const unsigned int width = 1920,
+		                     const unsigned int height = 1080)
+			: Title(std::move(title)), Width(width), Height(height)
 		{
 		}
 	};
@@ -26,7 +26,7 @@ namespace Shockwave
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
 
-		virtual ~Window() {}
+		virtual ~Window() = default;
 
 		virtual void OnUpdate() = 0;
 
@@ -37,6 +37,8 @@ namespace Shockwave
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
+
+		virtual void* GetNativeWindow() const = 0;
 
 		static Window* Create(const WindowProps& props = WindowProps());
 	};

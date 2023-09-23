@@ -156,7 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
-    <ClInclude Include="src\Shockwave\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Shockwave.h" />
     <ClInclude Include="src\Shockwave\Application.h" />
@@ -166,19 +166,173 @@
     <ClInclude Include="src\Shockwave\Events\Event.h" />
     <ClInclude Include="src\Shockwave\Events\KeyEvent.h" />
     <ClInclude Include="src\Shockwave\Events\MouseEvent.h" />
-    <ClInclude Include="src\Shockwave\Layer.h" />
-    <ClInclude Include="src\Shockwave\LayerStack.h" />
+    <ClInclude Include="src\Shockwave\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Shockwave\Input\GamepadCodes.h" />
+    <ClInclude Include="src\Shockwave\Input\Input.h" />
+    <ClInclude Include="src\Shockwave\Input\KeyCodes.h" />
+    <ClInclude Include="src\Shockwave\Input\MouseButtonCodes.h" />
+    <ClInclude Include="src\Shockwave\Layers\Layer.h" />
+    <ClInclude Include="src\Shockwave\Layers\LayerStack.h" />
     <ClInclude Include="src\Shockwave\Log.h" />
     <ClInclude Include="src\Shockwave\Window.h" />
     <ClInclude Include="src\swpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
-    <ClCompile Include="src\Shockwave\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Shockwave\Application.cpp" />
-    <ClCompile Include="src\Shockwave\Layer.cpp" />
-    <ClCompile Include="src\Shockwave\LayerStack.cpp" />
+    <ClCompile Include="src\Shockwave\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Shockwave\Layers\Layer.cpp">
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <Optimization>Disabled</Optimization>
+      <SupportJustMyCode>true</SupportJustMyCode>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>..\bin-int\Debug-windows-x86_64\Engine\</AssemblerListingLocation>
+      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+      <BrowseInformation>false</BrowseInformation>
+      <BrowseInformationFile>..\bin-int\Debug-windows-x86_64\Engine\</BrowseInformationFile>
+      <CompileAs>Default</CompileAs>
+      <ConformanceMode>Default</ConformanceMode>
+      <DiagnosticsFormat>Column</DiagnosticsFormat>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <EnableASAN>false</EnableASAN>
+      <EnableFuzzer>false</EnableFuzzer>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <GenerateModuleDependencies>false</GenerateModuleDependencies>
+      <GenerateSourceDependencies>false</GenerateSourceDependencies>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ModuleDependenciesFile>..\bin-int\Debug-windows-x86_64\Engine\</ModuleDependenciesFile>
+      <ModuleOutputFile>..\bin-int\Debug-windows-x86_64\Engine\</ModuleOutputFile>
+      <OmitDefaultLibName>false</OmitDefaultLibName>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <ObjectFileName>..\bin-int\Debug-windows-x86_64\Engine\</ObjectFileName>
+      <CallingConvention>Cdecl</CallingConvention>
+      <ProgramDataBaseFileName>..\bin-int\Debug-windows-x86_64\Engine\vc143.pdb</ProgramDataBaseFileName>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>swpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>..\bin-int\Debug-windows-x86_64\Engine\Engine.pch</PrecompiledHeaderOutputFile>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessKeepComments>false</PreprocessKeepComments>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <ShowIncludes>false</ShowIncludes>
+      <SourceDependenciesFile>..\bin-int\Debug-windows-x86_64\Engine\</SourceDependenciesFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <SpectreMitigation>false</SpectreMitigation>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <TrackerLogDirectory>..\bin-int\Debug-windows-x86_64\Engine\Engine.tlog\</TrackerLogDirectory>
+      <TranslateIncludes>false</TranslateIncludes>
+      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <XMLDocumentationFileName>..\bin-int\Debug-windows-x86_64\Engine\</XMLDocumentationFileName>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <IntelJCCErratum>false</IntelJCCErratum>
+      <BuildStlModules>false</BuildStlModules>
+      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+      <PreprocessorDefinitions>SW_PLATFORM_WINDOWS;SW_BUILD_DLL;GLFW_INCLUDE_NONE;SW_DEBUG;SW_ENABLE_ASSERTS;_WINDLL;_UNICODE;UNICODE;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MDd </AdditionalOptions>
+      <LinkCompiled>true</LinkCompiled>
+    </ClCompile>
+    <ClCompile Include="src\Shockwave\Layers\LayerStack.cpp">
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <Optimization>Disabled</Optimization>
+      <SupportJustMyCode>true</SupportJustMyCode>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>..\bin-int\Debug-windows-x86_64\Engine\</AssemblerListingLocation>
+      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+      <BrowseInformation>false</BrowseInformation>
+      <BrowseInformationFile>..\bin-int\Debug-windows-x86_64\Engine\</BrowseInformationFile>
+      <CompileAs>Default</CompileAs>
+      <ConformanceMode>Default</ConformanceMode>
+      <DiagnosticsFormat>Column</DiagnosticsFormat>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <EnableASAN>false</EnableASAN>
+      <EnableFuzzer>false</EnableFuzzer>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <GenerateModuleDependencies>false</GenerateModuleDependencies>
+      <GenerateSourceDependencies>false</GenerateSourceDependencies>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ModuleDependenciesFile>..\bin-int\Debug-windows-x86_64\Engine\</ModuleDependenciesFile>
+      <ModuleOutputFile>..\bin-int\Debug-windows-x86_64\Engine\</ModuleOutputFile>
+      <OmitDefaultLibName>false</OmitDefaultLibName>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <ObjectFileName>..\bin-int\Debug-windows-x86_64\Engine\</ObjectFileName>
+      <CallingConvention>Cdecl</CallingConvention>
+      <ProgramDataBaseFileName>..\bin-int\Debug-windows-x86_64\Engine\vc143.pdb</ProgramDataBaseFileName>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>swpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>..\bin-int\Debug-windows-x86_64\Engine\Engine.pch</PrecompiledHeaderOutputFile>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessKeepComments>false</PreprocessKeepComments>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <ShowIncludes>false</ShowIncludes>
+      <SourceDependenciesFile>..\bin-int\Debug-windows-x86_64\Engine\</SourceDependenciesFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <SpectreMitigation>false</SpectreMitigation>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <TrackerLogDirectory>..\bin-int\Debug-windows-x86_64\Engine\Engine.tlog\</TrackerLogDirectory>
+      <TranslateIncludes>false</TranslateIncludes>
+      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <XMLDocumentationFileName>..\bin-int\Debug-windows-x86_64\Engine\</XMLDocumentationFileName>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <IntelJCCErratum>false</IntelJCCErratum>
+      <BuildStlModules>false</BuildStlModules>
+      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+      <PreprocessorDefinitions>SW_PLATFORM_WINDOWS;SW_BUILD_DLL;GLFW_INCLUDE_NONE;SW_DEBUG;SW_ENABLE_ASSERTS;_WINDLL;_UNICODE;UNICODE;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MDd </AdditionalOptions>
+      <LinkCompiled>true</LinkCompiled>
+    </ClCompile>
     <ClCompile Include="src\Shockwave\Log.cpp" />
     <ClCompile Include="src\swpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -194,6 +348,9 @@
     <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Shockwave\Input\JoyStickCodes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

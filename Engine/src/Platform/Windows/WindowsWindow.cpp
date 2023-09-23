@@ -43,23 +43,23 @@ namespace Shockwave
 		if (!s_GLFWInitialized)
 		{
 			// TODO: glfwTerminate on system shutdown
-			int success = glfwInit();
-			SW_CORE_ASSERT(success, "Could not initialize GLFW");
+			const int success = glfwInit();
+			SW_CORE_ASSERT(success, "Could not initialize GLFW")
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		m_Window = glfwCreateWindow(props.Width, props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		SW_CORE_ASSERT(status, "Failed to initialize Glad!");
+		const int status = gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress));
+		SW_CORE_ASSERT(status, "Failed to initialize Glad!")
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
 		// Set GLFW callbacks
-		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
+		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, const int width, const int height)
 		{
 			WindowData& data = GetWindowData(window);
 			data.Width = width;
@@ -76,7 +76,7 @@ namespace Shockwave
 			data.EventCallback(event);
 		});
 
-		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
+		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, const int key, const int scancode, const int action, const int mods)
 		{
 			const WindowData& data = GetWindowData(window);
 
@@ -103,14 +103,14 @@ namespace Shockwave
 			}
 		});
 
-		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, const unsigned int keycode)
 		{
 			WindowData& data = GetWindowData(window);
 			KeyTypedEvent event(keycode);
 			data.EventCallback(event);
 		});
 
-		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
+		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, const int button, const int action, int mods)
 		{
 			const WindowData& data = GetWindowData(window);
 
@@ -131,19 +131,19 @@ namespace Shockwave
 			}
 		});
 
-		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
+		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, const double xOffset, const double yOffset)
 		{
 			const WindowData& data = GetWindowData(window);
 
-			MouseScrolledEvent event((float)xOffset, (float)yOffset);
+			MouseScrolledEvent event(xOffset, yOffset);
 			data.EventCallback(event);
 		});
 
-		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPosition, double yPosition)
+		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, const double xPosition, const double yPosition)
 		{
 			const WindowData& data = GetWindowData(window);
 
-			MouseMovedEvent event((float)xPosition, (float)yPosition);
+			MouseMovedEvent event(xPosition, yPosition);
 			data.EventCallback(event);
 		});
 	}

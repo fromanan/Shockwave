@@ -3,7 +3,7 @@
 #include "Core.h"
 
 #include "Window.h"
-#include "Shockwave/LayerStack.h"
+#include "Shockwave/Layers/LayerStack.h"
 #include "Shockwave/Events/Event.h"
 #include "Shockwave/Events/ApplicationEvent.h"
 
@@ -23,7 +23,7 @@ namespace Shockwave
 		void PushOverlay(Layer* overlay);
 
 		inline static Application& Get() { return *s_Instance; }
-		inline Window& GetWindow() { return *m_Window; }
+		inline Window& GetWindow() const { return *m_Window; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
